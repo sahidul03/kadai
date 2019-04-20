@@ -1,0 +1,29 @@
+<div class="form-common">
+  <%= link_to "写真リスト", albums_path, class: 'btn-common ml-0' %>
+  <h1>写真のアップロード</h1>
+  <%= form_for @album do |f| %>
+    <% if @album.errors.any? %>
+        <ul>
+          <% @album.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    <% end %>
+    <div class="field">
+      <label for="title">タイトル*</label>
+      <%= f.text_field :title, :placeholder=>"タイトル*" %>
+    </div>
+
+    <div class="field">
+      <label for="image">画像ファイル</label>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'アップロードする', :class=>'submit-btn color-primary', :data => { disable_with: 'アップロード中...' } %>
+      <%= link_to albums_path do %>
+        <button class="submit-btn">キャンセル</button>
+      <% end %>
+    </div>
+  <% end %>
+</div>

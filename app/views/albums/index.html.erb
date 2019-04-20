@@ -1,0 +1,25 @@
+<h1>写真リスト</h1>
+
+<%= link_to '写真アップロードページ', new_album_path %>
+
+<div class="album-container">
+  <% if @albums.present? %>
+    <% @albums.each do |album| %>
+      <div class="img-album">
+        <div class="image-title">
+          <%= album.title %>
+        </div>
+        <div class="img-border">
+          <%= image_tag(url_for(album.image)) %>
+        </div>
+        <div class="twitter-btn">
+          <button type="button">つぶやき</button>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    写真がありません
+  <% end %>
+</div>
+
+

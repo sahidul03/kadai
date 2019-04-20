@@ -1,0 +1,24 @@
+<div class="form-common">
+  <h1>ログイン</h1>
+
+  <%= form_tag sessions_path do |form| %>
+    <% if alert.present? %>
+      <ul>
+        <% alert.each do |alert_message| %>
+          <li><%= alert_message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div class="field">
+      <%= label_tag "ユーザーID" %>
+      <%= text_field_tag :username %>
+    </div>
+    <div class="field">
+      <%= label_tag "パスワード" %>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "ログインする", class: 'submit-btn color-primary' %>
+    </div>
+  <% end %>
+</div>
