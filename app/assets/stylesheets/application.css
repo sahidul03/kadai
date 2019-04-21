@@ -49,6 +49,7 @@
     background-color: #1da1f2;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 
@@ -140,4 +141,13 @@ form {
 
 .ml-0 {
     margin-left: 0 !important;
+}
+
+.mb-15 {
+    margin-bottom: 15px !important;
+}
+
+.tweet-form {
+    border: 0;
+    padding: 0;
 }

@@ -14,6 +14,8 @@ Installation:
 
 * Run `bundle install` to install gems.
 
+* Create `config/local_env.yml` from `config\local_env.yml.example` and don't forget to put your credential in `local_env.yml`
+
 * Run `rails db:setup` to setup the database. It uses SQLite database (the default one).
 
 * Run `rails db:seed`. It will create two following users for testing. 

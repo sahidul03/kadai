@@ -1,5 +1,7 @@
 <h1>写真リスト</h1>
 
+<%= link_to '偽のTwitterアプリにアクセスする', tweeter_auth_path, class: 'btn-common color-primary ml-0 mb-15' unless access_token %>
+
 <%= link_to '写真アップロードページ', new_album_path %>
 
 <div class="album-container">
@@ -12,9 +14,15 @@
         <div class="img-border">
           <%= image_tag(url_for(album.image)) %>
         </div>
-        <div class="twitter-btn">
-          <button type="button">つぶやき</button>
-        </div>
+        <% if access_token %>
+          <div class="twitter-btn">
+            <%= form_tag tweet_albums_path, class: "tweet-form" do %>
+              <%= hidden_field_tag :title, album.title %>
+              <%= hidden_field_tag :image, url_for(album.image) %>
+              <button type="submit">つぶやき</button>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   <% else %>
